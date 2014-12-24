@@ -4,29 +4,28 @@ var play = {
         this.skymirror = game.add.sprite(1024, 0, 'skymirror');
         this.sky.scale.y = 2.0;
         this.skymirror.scale.y = 2.0;
-        this.olee = this.game.add.audio('olee');
-        this.olee.volume = 1.5;
-        this.olee.play()
-        this.fin = this.game.add.audio('bf');
+        this.nisse = this.game.add.audio('nisse');
+        this.nisse.volume = 1.5;
+        this.nisse.play()
         this.space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        this.powerade = game.add.group();
-        this.powerade.createMultiple(5, 'powerade');
-        this.powerade.setAll('checkWorldBounds', true);
-        this.powerade.setAll('outOfBoundsKill', true);
-        this.powerade.enableBody = true;
-        this.powerade.scale.setTo(1.27, 1.27);
-        this.poweradef = game.add.group();
-        this.poweradef.createMultiple(5, 'poweradef');
-        this.poweradef.setAll('checkWorldBounds', true);
-        this.poweradef.setAll('outOfBoundsKill', true);
-        this.poweradef.enableBody = true;
-        this.poweradef.scale.setTo(1.27, 1.27);
+        this.polkagris = game.add.group();
+        this.polkagris.createMultiple(5, 'polkagris');
+        this.polkagris.setAll('checkWorldBounds', true);
+        this.polkagris.setAll('outOfBoundsKill', true);
+        this.polkagris.enableBody = true;
+        this.polkagris.scale.setTo(1.27, 1.27);
+        this.polkagris2 = game.add.group();
+        this.polkagris2.createMultiple(5, 'polkagris2');
+        this.polkagris2.setAll('checkWorldBounds', true);
+        this.polkagris2.setAll('outOfBoundsKill', true);
+        this.polkagris2.enableBody = true;
+        this.polkagris2.scale.setTo(1.27, 1.27);
         game.physics.startSystem(Phaser.Physics.ARCADE);
         this.player = this.game.add.sprite(W / 2, H / 2 - 100, 'nisse');
         this.player.scale.setTo(0.3, 0.3);
         game.physics.arcade.enable(this.player);
-        game.physics.arcade.enable(this.powerade);
-        game.physics.arcade.enable(this.poweradef);
+        game.physics.arcade.enable(this.polkagris);
+        game.physics.arcade.enable(this.polkagris2);
         this.player.anchor.setTo(0.5, 0.5);
         this.score = 0;
 
@@ -51,12 +50,8 @@ var play = {
         game.input.onDown.add(this.jump, this);
         this.space.onDown.add(this.jump, this);
         if (this.player.inWorld == false) this.restart();
-        game.physics.arcade.collide(this.player, this.powerade, 0, this.restart, this);
-        game.physics.arcade.collide(this.player, this.poweradef, 0, this.restart, this);
-        if (game.time.now > this.finTime) {
-            this.fin.play();
-            this.finTime += 22000;
-        }
+        game.physics.arcade.collide(this.player, this.polkagris, 0, this.restart, this);
+        game.physics.arcade.collide(this.player, this.polkagris2, 0, this.restart, this);
 
       if (this.sky.x < -1024) {
         this.sky.x = 1024;
@@ -73,7 +68,7 @@ var play = {
 
     },
     render: function() {
-        game.debug.body(this.powerade)
+        game.debug.body(this.polkagris)
     },
     jump: function() {
         this.player.body.velocity.y = -600;
@@ -85,14 +80,14 @@ var play = {
 
     },
     restart: function() {
-        this.olee.stop();
-        this.olee.stop();
-        this.olee.stop();
+        this.nisse.stop();
+        this.nisse.stop();
+        this.nisse.stop();
         game.state.start('menu')
     },
     add_p: function() {
-        var power = this.powerade.getFirstDead();
-        var power2 = this.poweradef.getFirstDead();
+        var power = this.polkagris.getFirstDead();
+        var power2 = this.polkagris2.getFirstDead();
         power.body.setSize(169, 581, 50, 90);
         power2.body.setSize(169, 581, 50, 40);
         var random = Math.floor(Math.random() * 400) - 200;
@@ -107,9 +102,8 @@ var play = {
             BEST = this.score;
             document.cookie = 'bestcookie='+BEST+'; expires=Fri, 1 Aug 2020 20:47:11 UTC; path=/';
         }
+
         this.scoretext.text = "JULEGAVER: " + this.score;
         this.besttext.text = "REKORD: " + BEST
     },
-
-
 }

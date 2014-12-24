@@ -1,6 +1,5 @@
 var W = 640;
 var H = 1136;
-var SPEED = 400;
 var SCORE = 0;
 var BEST = 0;
 var game = new Phaser.Game(W, H, Phaser.AUTO, 'game', null, false, false);
