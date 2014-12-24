@@ -5,7 +5,7 @@ var play = {
         this.sky.scale.y = 2.0;
         this.skymirror.scale.y = 2.0;
         this.olee = this.game.add.audio('olee');
-        this.olee.volume = 2.0;
+        this.olee.volume = 1.5;
         this.olee.play()
         this.fin = this.game.add.audio('bf');
         this.space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
