@@ -11,7 +11,7 @@ var load = {
             this.scale.pageAlignVertically = true;
             this.scale.setScreenSize(true);
 
-            game.load.audio('olee', 'assets/setMaximumCompression.mp3')
+            game.load.audio('olee', 'assets/nissehistorie.mp3')
 	        game.stage.backgroundColor = '#ff0000';
 
             game.add.text(50, 100, "LOADING...", { font: "80px Arial", fill: "#fff", align: "center" });
@@ -23,8 +23,6 @@ var load = {
             game.load.image('powerade', 'assets/powerade.png');
             game.load.image('poweradef', 'assets/powerade_f.png');
             game.load.image('menu', 'assets/bakgrunn.jpg');
-            game.load.audio('ah', 'assets/ah.wav');
-            game.load.audio('mhm', 'assets/mhm.wav');
 	},
 
 	create: function() {

@@ -4,14 +4,10 @@ var play = {
         this.skymirror = game.add.sprite(1024, 0, 'skymirror');
         this.sky.scale.y = 2.0;
         this.skymirror.scale.y = 2.0;
-        this.ah = this.game.add.audio('ah');
         this.olee = this.game.add.audio('olee');
-        this.olee.volume = 0.0;
+        this.olee.volume = 2.0;
         this.olee.play()
-        this.mhm = this.game.add.audio('mhm');
         this.fin = this.game.add.audio('bf');
-        this.mhm.volume = 0.5;
-        this.ah.volume = 0.5;
         this.space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.powerade = game.add.group();
         this.powerade.createMultiple(5, 'powerade');
@@ -86,11 +82,7 @@ var play = {
             angle: -20
         }, 100);
         tweenz.start();
-        if ((Math.floor(Math.random() * 2) + 1) == 1) {
-            this.ah.play()
-        } else {
-            this.mhm.play()
-        }
+
     },
     restart: function() {
         this.olee.stop();
