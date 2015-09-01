@@ -2,7 +2,7 @@ var W = 640;
 var H = 1136;
 var SCORE = 0;
 var BEST = 0;
-var game = new Phaser.Game(W, H, Phaser.AUTO, 'game', null, false, false);
+var game = new Phaser.Game(W, H, Phaser.CANVAS, 'game', null, false, false);
 game.state.add('load', load);
 game.state.add('menu', menu);
 game.state.add('play', play);
