@@ -1,4 +1,4 @@
 Julespillet
 ===========
 
-Julespillet AKA Flappy Santa. Play it here: http://assios.no/flappysanta
+Julespillet AKA Flappy Santa. Play it here: http://assios.no/julenissen
